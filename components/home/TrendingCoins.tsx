@@ -50,27 +50,34 @@ const columns: DataTableColumn<TrendingCoin>[] = [
   },
 ];
 
-const TrendingCoins = async () => {
-  const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-    '/search/trending',
-    undefined,
-    60
-  );
-  return (
-    <div id="trending-coins">
-      <h4>Trending Coins</h4>
+import { TrendingCoinsFallback } from './fallback';
 
+const TrendingCoins = async () => {
+  try {
+    const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
+      '/search/trending',
+      undefined,
+      60
+    );
+    return (
       <div id="trending-coins">
-        <DataTable
-          columns={columns}
-          data={trendingCoins.coins.slice(0, 6) || []}
-          rowKey={(coin) => coin.item.id}
-          headerCellClassName="py-3! "
-          bodyCellClassName="py-3! "
-        />
+        <h4>Trending Coins</h4>
+
+        <div id="trending-coins">
+          <DataTable
+            columns={columns}
+            data={trendingCoins.coins.slice(0, 6) || []}
+            rowKey={(coin) => coin.item.id}
+            headerCellClassName="py-3! "
+            bodyCellClassName="py-3! "
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error('Error fetching trending coins:', error);
+    return <TrendingCoinsFallback />;
+  }
 };
 
 export default TrendingCoins;
