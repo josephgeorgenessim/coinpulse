@@ -11,14 +11,13 @@ const CoinOverview = async () => {
     let coinOHLCData;
     try {
         const [coin, coinOHLCData] = await Promise.all([
-
             // fetch coin details
-            await fetcher<CoinDetailsData>('/coins/bitcoin', {
+            fetcher<CoinDetailsData>('/coins/bitcoin', {
                 dex_pair_format: 'symbol',
             }),
 
             // fetch coin chart data
-            await fetcher<OHLCData>(
+            fetcher<OHLCData[]>(
                 `/coins/bitcoin/ohlc`,
                 {
                     vs_currency: 'usd',
