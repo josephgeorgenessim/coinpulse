@@ -63,11 +63,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📸 Screenshots
-
-*(Add your screenshots here to make it look even better!)*
-
----
-
 ## 📄 License
 This project is licensed under the MIT License.
