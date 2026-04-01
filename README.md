@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🪙 CoinPulse - Professional Crypto Tracker
 
-## Getting Started
+**CoinPulse** is a premium, real-time cryptocurrency tracking platform built with Next.js and the CoinGecko API. It provides users with live market data, interactive candlestick charts, and a global search engine designed for speed and precision.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Key Features
+
+### 🔍 Global Search Engine
+- **Command + K**: Instantly open the search modal from any page.
+- **Fast Search**: Debounced queries to find any coin globally.
+- **Keyboard Friendly**: Navigate results with arrow keys and `Enter` to select.
+
+### 📈 Live Coin Detail Pages
+- **Real-Time Prices**: Live price updates powered by **WebSockets**.
+- **Automatic Fallback**: Intelligent "Polling Mode" that automatically takes over if WebSockets are unavailable (e.g., on Free API plans).
+- **Interactive Charts**: High-performance candlestick charts using `lightweight-charts` with timeframe selection (1D, 1W, 1M, etc.).
+
+### 📊 Comprehensive Market Stats
+- **Detailed Analytics**: Market Cap, 24h Volume, Circulating Supply, and Fully Diluted Valuation.
+- **Visual Indicators**: Real-time status badges showing update frequency and connection state.
+- **Clean UI**: Modern, dark-themed interface built for readability and premium feel.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Data Source**: [CoinGecko API](https://www.coingecko.com/en/api)
+- **Charts**: [Lightweight Charts](https://tradingview.github.io/lightweight-charts/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Management**: React Hooks & Context
+
+---
+
+## 🚀 Getting Started
+
+### 1. Requirements
+- Node.js 18+
+- A CoinGecko API Key (Demo or Pro)
+
+### 2. Environment Setup
+Create a `.env.local` file in the root directory:
+```env
+NEXT_PUBLIC_COINGECKO_API_KEY=YOUR_API_KEY
+NEXT_PUBLIC_COINGECKO_WS_URL=wss://stream.coingecko.com/v1
+COINGECKO_BASE_URL=https://api.coingecko.com/api/v3
+COINGECKO_API_KEY=YOUR_API_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Installation
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+*(Add your screenshots here to make it look even better!)*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+This project is licensed under the MIT License.

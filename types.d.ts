@@ -209,6 +209,29 @@ interface CoinDetailsData {
     total_volume: {
       usd: number;
     };
+    high_24h: {
+      usd: number;
+    };
+    low_24h: {
+      usd: number;
+    };
+    fully_diluted_valuation: {
+      usd: number;
+    };
+    circulating_supply: number;
+    max_supply: number;
+    ath: {
+      usd: number;
+    };
+    ath_date: {
+      usd: string;
+    };
+    atl: {
+      usd: number;
+    };
+    atl_date: {
+      usd: string;
+    };
   };
   market_cap_rank: number;
   description: {

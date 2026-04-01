@@ -43,3 +43,30 @@ export async function fetcher<T>(
 
   return res.json();
 }
+
+export async function getCoinDetails(id: string): Promise<CoinDetailsData> {
+  return fetcher<CoinDetailsData>(`coins/${id}`, {
+    localization: false,
+    tickers: true,
+    market_data: true,
+    community_data: false,
+    developer_data: false,
+    sparkline: false,
+  });
+}
+
+export async function getCoinOHLC(
+  id: string,
+  days: number = 7
+): Promise<OHLCData[]> {
+  return fetcher<OHLCData[]>(`coins/${id}/ohlc`, {
+    vs_currency: 'usd',
+    days: days,
+  });
+}
+
+export async function searchCoins(query: string): Promise<{ coins: SearchCoin[] }> {
+  return fetcher<{ coins: SearchCoin[] }>('search', {
+    query: query,
+  });
+}
